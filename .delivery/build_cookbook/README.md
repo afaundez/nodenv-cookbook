@@ -35,10 +35,7 @@ git checkout -b testing-build-cookbook
 Next, increment the version in the metadata.rb. This should be in the _parent_, not in this, the build_cookbook. If this is not done, the verify phase will fail.
 
 ```
-% git diff
-<SNIP>
--version '0.1.0'
-+version '0.1.1'
+version '0.1.1'
 ```
 
 The change we'll use for an example is to install the `zsh` package. Write a failing ChefSpec in the cookbook project's `spec/unit/recipes/default_spec.rb`.
