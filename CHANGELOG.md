@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.1.0] - 2017-08-06
+## [0.1.1] - 2017-08-06
+### Added
+- Add testing guide
+- Remove centos from automated testing
+- Add contributing guide
+- Add code of conduct
+
+## [0.1.1] - 2017-08-06
 ### Added
 - Add user install
