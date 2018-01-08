@@ -18,8 +18,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[nodenv::default]
+      - recipe[test::default]
     verifier:
       inspec_tests:
         - test/smoke/default
-    attributes:

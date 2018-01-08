@@ -1,18 +1,19 @@
 # # encoding: utf-8
 
-# Inspec test for recipe nodenv::default
+# Inspec test for recipe test::default
 
-# The Inspec reference, with examples and extensive documentation, can be
-# found at http://inspec.io/docs/reference/resources/
-
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+describe package('git') do
+  it { should be_installed }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe file('/etc/profile.d/nodenv.sh') do
+  it { should exist }
+end
+
+global_version = '8.2.1'
+
+describe bash('sudo -H -u vagrant bash -c "source /etc/profile.d/nodenv.sh && nodenv global"') do
+  its('exit_status') { should eq 0 }
+  its('stdout') { should include(global_version) }
+  its('stdout') { should_not match(/system/) }
 end
