@@ -22,13 +22,11 @@ provides :nodeenv_global
 
 property :version, String, name_property: true
 property :user, String
-property :user_home, String, default: lazy { ::File.expand_path("~#{user}") }
 
 action :install do
   nodenv_command "Set global nodenv version for #{new_resource.user}" do
     version   new_resource.version
     user      new_resource.user
-    user_home new_resource.user_home
     command   "nodenv global #{new_resource.version}"
     not_if    { current_global_version_correct? }
   end
