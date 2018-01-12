@@ -55,7 +55,7 @@ action_class do
     script = []
     script << %(export NODENV_ROOT="#{root_path}")
     script << %(export PATH="${NODENV_ROOT}/bin:$PATH")
-    script << %{eval "$(nodenev init -)"}
+    script << %{eval "$(nodenv init -)"}
     if new_resource.version
       script << %(export NODENV_VERSION="#{new_resource.version}")
     end
