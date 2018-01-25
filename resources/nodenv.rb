@@ -1,23 +1,25 @@
 provides :nodenv
 
-property :user, String, name_attribute: true
+property :user,     String, name_attribute: true
 property :versions, Array, default: []
 
-property :git_url, String, default: 'https://github.com/nodenv/nodenv.git'
+property :git_url,      String, default: 'https://github.com/nodenv/nodenv.git'
 property :git_revision, String, default: 'master'
 
-property :nodenv_root, String, default: lazy { ::File.join(::File.expand_path("~#{user}"), '.nodenv') }
+property :nodenv_root,    String, default: lazy { ::File.join(::File.expand_path("~#{user}"), '.nodenv') }
 property :nodenv_plugins, String, default: lazy { ::File.join(nodenv_root, 'plugins') }
 
 action :install do
+  node.run_state['root_path'] = new_resource.nodenv_root
+
   package %w(git-core grep)
 
   git new_resource.nodenv_root do
     repository new_resource.git_url
-    reference new_resource.git_revision
+    reference  new_resource.git_revision
+    user       new_resource.user
+    group      new_resource.user
     action :checkout
-    user new_resource.user
-    group new_resource.user
     not_if { ::File.exist?(::File.join(new_resource.nodenv_root, 'bin', 'nodejs')) }
   end
 
@@ -29,10 +31,10 @@ action :install do
 
   git ::File.join(new_resource.nodenv_plugins, 'node-build') do
     repository 'https://github.com/nodenv/node-build.git'
-    reference 'master'
+    reference  'master'
+    user       new_resource.user
+    group      new_resource.user
     action :checkout
-    user new_resource.user
-    group new_resource.user
     not_if { ::File.exist?(::File.join(new_resource.nodenv_plugins, 'node-build', 'bin', 'node-build')) }
   end
 
@@ -40,6 +42,7 @@ action :install do
     source 'nodenv.sh.erb'
     owner 'root'
     mode '0755'
+    cookbook 'nodenv'
   end
 
   new_resource.versions.each do |version|
