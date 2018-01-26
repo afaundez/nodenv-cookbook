@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.4] - 2018-01-25
+### Updated
+- Update nodenv init runs only if nodenv is installed
+
 ## [0.1.3] - 2018-01-25
 ### Added
 - Add a test cookbook with inspec tests
