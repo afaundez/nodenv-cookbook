@@ -27,3 +27,7 @@ chef.json = {
   },
 }
 ```
+
+## Testing
+
+Basically `kitchen test`. Check [kitchen test docs](https://kitchen.ci/docs/getting-started/running-test)
