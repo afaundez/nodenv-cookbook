@@ -31,3 +31,7 @@ chef.json = {
 ## Testing
 
 Basically `kitchen test`. Check [kitchen test docs](https://kitchen.ci/docs/getting-started/running-test)
+
+## Development
+
+Use the vagrant vm that kitchen admin for testing. Check [kitchen converge docs](https://kitchen.ci/docs/getting-started/running-converge)
