@@ -2,8 +2,10 @@
 
 # Inspec test for recipe test::default
 
-describe package('git') do
-  it { should be_installed }
+describe command('git') do
+  it { should exist }
+  its('exit_status') { should eq 1 }
+  its('stdout') { should include('usage: git') }
 end
 
 describe file('/etc/profile.d/nodenv.sh') do
