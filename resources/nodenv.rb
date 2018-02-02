@@ -12,7 +12,7 @@ property :nodenv_plugins, String, default: lazy { ::File.join(nodenv_root, 'plug
 action :install do
   node.run_state['root_path'] = new_resource.nodenv_root
 
-  package %w(git-core grep)
+  include_recipe 'git'
 
   git new_resource.nodenv_root do
     repository new_resource.git_url

@@ -1,13 +1,3 @@
-# # encoding: utf-8
-
-# Inspec test for recipe test::default
-
-describe command('git') do
-  it { should exist }
-  its('exit_status') { should eq 1 }
-  its('stdout') { should include('usage: git') }
-end
-
 describe file('/etc/profile.d/nodenv.sh') do
   it { should exist }
 end

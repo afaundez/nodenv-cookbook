@@ -1,6 +1,3 @@
-
-apt_update 'update'
-
 nodenv 'vagrant' do
   versions ['8.2.1']
   action   :install
