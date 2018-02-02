@@ -1,5 +1,5 @@
 name 'test'
-version '0.99.0'
+version '0.1.4'
 
 depends 'nodenv'
 depends 'apt'

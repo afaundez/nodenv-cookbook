@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove testing doc
 ### Updated
 - Add testing to readme
+- Install git with cookbook
 
 ## [0.1.4] - 2018-01-25
 ### Updated
