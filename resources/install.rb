@@ -1,4 +1,4 @@
-provides :nodenv_node
+provides :nodenv_node # for backwards compatibility
 
 property :version, String, name_property: true
 property :user, String

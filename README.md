@@ -4,34 +4,38 @@ Install [nodenv](https://github.com/nodenv/nodenv) and manage node versions. Bas
 
 ## Usage
 
+### User Install
+
 ```ruby
 nodenv 'user' do
   versions ['8.2.1']
-  action :install
+  action   :install
 end
 ```
 
-If you are using vagrant, put this on your Vagrantfile:
+### Commands
+
+#### Install
 
 ```ruby
-chef.add_recipe 'nodenv'
+nodenv_install ['8.2.1'] do
+  user 'user'
+end
+```
 
-chef.json = {
-  nodenv: {
-    user_installs: [
-      {
-        user: 'vagrant',
-        nodes: ['8.2.1'],
-      },
-    ],
-  },
-}
+#### Global
+
+```ruby
+nodenv_global '8.2.1' do
+  user 'user'
+end
 ```
 
 ## Testing
 
-Basically `kitchen test`. Check [kitchen test docs](https://kitchen.ci/docs/getting-started/running-test)
+- [Test Kitchen](https://kitchen.ci/docs/getting-started/running-test): `kitchen test`
+- [ChefSpec](https://docs.chef.io/chefspec.html): `chef exec rspec`
 
 ## Development
 
-Use the vagrant vm that kitchen admin for testing. Check [kitchen converge docs](https://kitchen.ci/docs/getting-started/running-converge)
+- [kitchen converge docs](https://kitchen.ci/docs/getting-started/running-converge): `kitchen converve`
