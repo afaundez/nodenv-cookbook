@@ -6,9 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Nodenv Install resource
 - Development at readme
 ### Removed
-- Remove specs, unused
 - Remove testing doc
 ### Updated
 - Add testing to readme

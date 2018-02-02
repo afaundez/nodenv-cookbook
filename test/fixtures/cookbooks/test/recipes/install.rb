@@ -3,7 +3,7 @@ nodenv 'vagrant' do
   action   :install
 end
 
-nodenv_node ['8.2.1'] do
+nodenv_install ['8.2.1'] do
   user 'vagrant'
 end
 

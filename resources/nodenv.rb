@@ -46,7 +46,7 @@ action :install do
   end
 
   new_resource.versions.each do |version|
-    nodenv_node version do
+    nodenv_install version do
       user new_resource.user
     end
   end
