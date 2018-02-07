@@ -1,6 +1,6 @@
 name 'nodenv'
-maintainer 'Álvaro Faúndez'
-maintainer_email 'alvaro@faundeznet'
+maintainer 'Alvaro Faundez'
+maintainer_email 'alvaro@faundez.net'
 license 'MIT'
 description 'Installs/Configures nodenv'
 long_description 'Installs/Configures nodenv'
