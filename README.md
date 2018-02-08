@@ -1,3 +1,5 @@
+[![Chef cookbook](https://img.shields.io/cookbook/v/nodenv.svg)]()
+[![Travis](https://img.shields.io/travis/afaundez/nodenv-cookbook.svg)]()
 # Nodenv Cookbook
 
 Chef resource for [nodenv](https://github.com/nodenv/nodenv) installs, configuration and management of node versions.
