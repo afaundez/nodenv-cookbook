@@ -18,5 +18,4 @@ action :install do
     nodenv_root new_resource.nodenv_root
     nodenv_plugins new_resource.nodenv_plugins
   end
-
 end
