@@ -2,20 +2,32 @@ describe file('/etc/profile.d/nodenv.sh') do
   it { should exist }
 end
 
-install_version = '8.2.1'
+system_version = '9.5.0'
 
-describe file("/home/notroot/.nodenv/versions/#{install_version}/bin/node") do
+describe file("/usr/local/nodenv/versions/#{system_version}/bin/node") do
   it { should exist }
 end
 
-describe bash('sudo -H -u notroot bash -c "source /etc/profile.d/nodenv.sh && nodenv global"') do
+describe bash('sudo -H -u user-without-nodenv bash -c "source /etc/profile.d/nodenv.sh && nodenv global"') do
   its('exit_status') { should eq 0 }
-  its('stdout') { should include(install_version) }
+  its('stdout') { should include(system_version) }
   its('stdout') { should_not match(/system/) }
 end
 
-legacy_install_version = '6.11.2'
+user_version = '8.9.4'
 
-describe file("/home/notroot/.nodenv/versions/#{legacy_install_version}/bin/node") do
+describe file("/home/user-with-nodenv/.nodenv/versions/#{user_version}/bin/node") do
+  it { should exist }
+end
+
+describe bash('sudo -H -u user-with-nodenv bash -c "source /etc/profile.d/nodenv.sh && nodenv global"') do
+  its('exit_status') { should eq 0 }
+  its('stdout') { should include(user_version) }
+  its('stdout') { should_not match(/system/) }
+end
+
+legacy_install_version = '6.12.2'
+
+describe file("/home/user-with-nodenv/.nodenv/versions/#{legacy_install_version}/bin/node") do
   it { should exist }
 end

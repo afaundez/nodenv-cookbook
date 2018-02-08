@@ -1,19 +1,14 @@
 provides :nodenv_node # for backwards compatibility
 
 property :version, String, name_property: true
-property :user, String
-property :user_home, String, default: lazy { ::File.expand_path("~#{user}") }
+property :user, String, default: 'root'
 
 action :install do
-  cmd = %(nodenv install #{new_resource.version})
-
-  bash "#{cmd} for user #{new_resource.user}" do
-    code cmd
-    user new_resource.user
-    action :run
-    flags '-l'
-    environment 'HOME' => new_resource.user_home
-    not_if { node_exists? }
+  nodenv_command "Install node #{new_resource.version} for #{new_resource.user}" do
+    version   new_resource.version
+    user      new_resource.user
+    command   "nodenv install #{new_resource.version}"
+    not_if    { node_exists? }
   end
 end
 
@@ -21,6 +16,6 @@ action_class do
   include Chef::Nodenv::ScriptHelpers
 
   def node_exists?
-    ::File.exist?(::File.join(new_resource.user_home, '.nodenv', 'versions', new_resource.version, 'bin', 'node'))
+    ::File.exist? ::File.join(root_path, 'versions', new_resource.version)
   end
 end

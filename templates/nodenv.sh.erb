@@ -3,6 +3,9 @@
 
 if [ -s "${HOME}/.nodenv/bin" ]; then
   nodenv_root="${HOME}/.nodenv"
+elif [ -s "/usr/local/nodenv/bin" ]; then
+  nodenv_root="/usr/local/nodenv"
+  export NODENV_ROOT="$nodenv_root"
 fi
 
 if [ -n "$nodenv_root" ]; then
