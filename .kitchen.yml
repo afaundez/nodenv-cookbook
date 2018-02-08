@@ -29,8 +29,9 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[test::install]
-      - recipe[test::legacy]
+      - recipe[test::setup]
+      - recipe[test::system]
+      - recipe[test::user]
     verifier:
       inspec_tests:
         - test/smoke/default

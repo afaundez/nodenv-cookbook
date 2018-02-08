@@ -17,23 +17,23 @@ action :install do
   git new_resource.nodenv_root do
     repository new_resource.git_url
     reference  new_resource.git_revision
-    user       new_resource.user
-    group      new_resource.user
+    user       new_resource.user unless system_install?
+    group      new_resource.user unless system_install?
     action :checkout
     not_if { ::File.exist?(::File.join(new_resource.nodenv_root, 'bin', 'nodejs')) }
   end
 
   directory new_resource.nodenv_plugins do
-    owner new_resource.user
-    group new_resource.user
+    owner new_resource.user unless system_install?
+    group new_resource.user unless system_install?
     mode '0755'
   end
 
   git ::File.join(new_resource.nodenv_plugins, 'node-build') do
     repository 'https://github.com/nodenv/node-build.git'
     reference  'master'
-    user       new_resource.user
-    group      new_resource.user
+    user       new_resource.user unless system_install?
+    group      new_resource.user unless system_install?
     action :checkout
     not_if { ::File.exist?(::File.join(new_resource.nodenv_plugins, 'node-build', 'bin', 'node-build')) }
   end
@@ -49,5 +49,13 @@ action :install do
     nodenv_install version do
       user new_resource.user
     end
+  end
+end
+
+action_class do
+  include Chef::Nodenv::ScriptHelpers
+
+  def system_install?
+    new_resource.user == 'root'
   end
 end
