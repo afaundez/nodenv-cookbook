@@ -18,3 +18,4 @@ supports 'freebsd'
 supports 'amazon'
 
 depends 'git', '~> 8.0.0'
+depends 'node_build', '~> 1.0.0'

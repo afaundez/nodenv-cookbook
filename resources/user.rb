@@ -1,41 +1,20 @@
-provides :nodenv
-
-property :user,     String, name_attribute: true
-property :versions, Array, default: []
-
-property :git_url,      String, default: 'https://github.com/nodenv/nodenv.git'
+property :user, String, name_attribute: true
+property :git_url, String, default: 'https://github.com/nodenv/nodenv.git'
 property :git_revision, String, default: 'master'
-
-property :nodenv_root,    String, default: lazy { ::File.join(::File.expand_path("~#{user}"), '.nodenv') }
-property :nodenv_plugins, String, default: lazy { ::File.join(nodenv_root, 'plugins') }
+property :nodenv_root, String, default: lazy { ::File.join ::File.expand_path("~#{user}"), '.nodenv' }
 
 action :install do
   node.run_state['root_path'] = new_resource.nodenv_root
 
-  include_recipe 'git'
+  git_client 'default'
 
-  git new_resource.nodenv_root do
+  git root_path do
     repository new_resource.git_url
     reference  new_resource.git_revision
-    user       new_resource.user unless system_install?
-    group      new_resource.user unless system_install?
+    user new_resource.user
+    group new_resource.user
     action :checkout
-    not_if { ::File.exist?(::File.join(new_resource.nodenv_root, 'bin', 'nodejs')) }
-  end
-
-  directory new_resource.nodenv_plugins do
-    owner new_resource.user unless system_install?
-    group new_resource.user unless system_install?
-    mode '0755'
-  end
-
-  git ::File.join(new_resource.nodenv_plugins, 'node-build') do
-    repository 'https://github.com/nodenv/node-build.git'
-    reference  'master'
-    user       new_resource.user unless system_install?
-    group      new_resource.user unless system_install?
-    action :checkout
-    not_if { ::File.exist?(::File.join(new_resource.nodenv_plugins, 'node-build', 'bin', 'node-build')) }
+    not_if { ::File.exist? nodenv_bin_file }
   end
 
   template '/etc/profile.d/nodenv.sh' do
@@ -45,17 +24,9 @@ action :install do
     cookbook 'nodenv'
   end
 
-  new_resource.versions.each do |version|
-    nodenv_install version do
-      user new_resource.user
-    end
-  end
+  node_build_plugin_install ::File.join(nodenv_plugins_path, 'node-build')
 end
 
 action_class do
   include Chef::Nodenv::ScriptHelpers
-
-  def system_install?
-    new_resource.user == 'root'
-  end
 end

@@ -4,6 +4,12 @@
 
 Chef resource for [nodenv](https://github.com/nodenv/nodenv) installs, configuration and management of node versions.
 
+## Cookbook
+
+```ruby
+cookbook 'nodenv', '~> 1.0.0'
+```
+
 ## Usage
 
 You can choose whether a user or a system install (or both). Check [test recipes](/test/fixtures/cookbooks/test/recipes) for working examples.

@@ -18,8 +18,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-provides :nodeenv_global
-
 property :version, String, name_property: true
 property :user, String
 

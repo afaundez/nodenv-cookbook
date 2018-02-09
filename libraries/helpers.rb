@@ -26,8 +26,12 @@ class Chef
         node.run_state['root_path']
       end
 
-      def which_nodenv
-        "(#{new_resource.user || 'system'})"
+      def nodenv_bin_file
+        ::File.join root_path, 'bin', 'nodejs'
+      end
+
+      def nodenv_plugins_path
+        ::File.join root_path, 'plugins'
       end
     end
   end
