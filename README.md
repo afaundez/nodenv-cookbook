@@ -10,7 +10,7 @@ Chef resource for [nodenv](https://github.com/nodenv/nodenv) installs, configura
 cookbook 'nodenv', '~> 1.0.0'
 ```
 
-## Usage
+## Resources
 
 You can choose whether a user or a system install (or both). Check [test recipes](/test/fixtures/cookbooks/test/recipes) for working examples.
 
@@ -21,12 +21,24 @@ You can choose whether a user or a system install (or both). Check [test recipes
 ```ruby
 nodenv_user 'user'
 ```
+|Property|Type|Default|Details|
+|-|-|-|
+|`:user`|String||must be and existing user|
+|`:nodenv_root`|String|`:user`'s home|A directory that must be writable by `:user`|
+|`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
+|`:git_revision`|String|master|choose a branch|
 
 #### System-wide
 
 ```ruby
 nodenv_system 'system'
 ```
+
+|Property|Type|Default|Details|
+|-|-|-|
+|`:nodenv_root`|String|`/usr/local/nodenv`||
+|`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
+|`:git_revision`|String|master|choose a branch|
 
 ### Commands
 
@@ -44,6 +56,10 @@ end
 nodenv_install '9.5.0'
 ```
 
+|Property|Type|Default|Details|
+|-|-|-|
+|`:version`|String||must be a valid [node version](https://nodejs.org/en/download/releases/), acts as name property|
+|`:user`|String|`root`|must be an existing user|
 #### Global
 
 Set a global node version for user/system-wide nodenv.
@@ -56,6 +72,10 @@ end
 nodenv_global '9.5.0'
 ```
 
+|Property|Type|Default|Details|
+|-|-|-|
+|`:version`|String||must be installed node versions, acts as name property|
+|`:user`|String|`root`|must be an existing user|
 
 ## Testing
 
