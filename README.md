@@ -21,10 +21,11 @@ You can choose whether a user or a system install (or both). Check [test recipes
 ```ruby
 nodenv_user 'user'
 ```
+
 |Property|Type|Default|Details|
-|-|-|-|
-|`:user`|String||must be and existing user|
-|`:nodenv_root`|String|`:user`'s home|A directory that must be writable by `:user`|
+|-|-|-|-|
+|`:user`|String||must be and existing user, acts as name property|
+|`:nodenv_root`|String|`:user`'s home|a directory that must be writable by `:user`|
 |`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
 |`:git_revision`|String|master|choose a branch|
 
@@ -35,7 +36,7 @@ nodenv_system 'system'
 ```
 
 |Property|Type|Default|Details|
-|-|-|-|
+|-|-|-|-|
 |`:nodenv_root`|String|`/usr/local/nodenv`||
 |`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
 |`:git_revision`|String|master|choose a branch|
@@ -57,7 +58,7 @@ nodenv_install '9.5.0'
 ```
 
 |Property|Type|Default|Details|
-|-|-|-|
+|-|-|-|-|
 |`:version`|String||must be a valid [node version](https://nodejs.org/en/download/releases/), acts as name property|
 |`:user`|String|`root`|must be an existing user|
 #### Global
@@ -73,7 +74,7 @@ nodenv_global '9.5.0'
 ```
 
 |Property|Type|Default|Details|
-|-|-|-|
+|-|-|-|-|
 |`:version`|String||must be installed node versions, acts as name property|
 |`:user`|String|`root`|must be an existing user|
 
