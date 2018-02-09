@@ -5,12 +5,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [unreleased]
+### Fixed
+- Property tables at readme
+- Update 1.0.0 changelog
+
+## [1.0.0] - 2018-02-08
 ### Added
 - System install, reusing user install
+- Testing readme
 ### Updated
+- Refactoring user install
 - Update readme
+### Fixed
+- Travis/kitchen.dokken
+### Removed
+- Legacy node install
+- Remove versions property on install
+- Unused code
+- Unnecesary code
 
-## [0.1.5] - 2018-02-2
+## [0.1.5] - 2018-02-02
 ### Added
 - Nodenv Install resource
 - Development at readme
