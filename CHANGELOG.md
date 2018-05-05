@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Property tables at readme
 - Update 1.0.0 changelog
+- Foodcritic warning renaming name_attribute to name_property
 
 ## [1.0.0] - 2018-02-08
 ### Added

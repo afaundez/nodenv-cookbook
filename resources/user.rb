@@ -1,4 +1,4 @@
-property :user, String, name_attribute: true
+property :user, String, name_property: true
 property :git_url, String, default: 'https://github.com/nodenv/nodenv.git'
 property :git_revision, String, default: 'master'
 property :nodenv_root, String, default: lazy { ::File.join ::File.expand_path("~#{user}"), '.nodenv' }
