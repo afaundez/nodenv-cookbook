@@ -25,3 +25,15 @@ describe bash('sudo -H -u user-with-nodenv bash -c "source /etc/profile.d/nodenv
   its('stdout') { should include(user_version) }
   its('stdout') { should_not match(/system/) }
 end
+
+describe directory("/home/user-with-nodenv/.nodenv/versions/#{user_version}") do
+  it { should exist }
+  its('owner') { should eq 'user-with-nodenv' }
+  its('group') { should eq 'user-with-nodenv' }
+end
+
+describe file('/home/user-with-nodenv/.nodenv/version') do
+  it { should exist }
+  its('owner') { should eq 'user-with-nodenv' }
+  its('group') { should eq 'user-with-nodenv' }
+end
