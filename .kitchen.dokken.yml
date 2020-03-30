@@ -9,6 +9,11 @@ transport:
 provisioner:
   name: dokken
 
+verifier:
+  name: inspec
+  inspec_tests:
+    - path: test/smoke/
+
 platforms:
 - name: amazonlinux
   driver:

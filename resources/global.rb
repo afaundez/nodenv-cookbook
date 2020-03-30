@@ -20,11 +20,14 @@
 #
 property :version, String, name_property: true
 property :user, String
+property :group, String, default: ''
 
 action :install do
+  nd_group = new_resource.group != '' ? new_resource.group : new_resource.user
   nodenv_command "Set global nodenv version for #{new_resource.user}" do
     version   new_resource.version
     user      new_resource.user
+    group     nd_group
     command   "nodenv global #{new_resource.version}"
     not_if    { current_global_version_correct? }
   end
