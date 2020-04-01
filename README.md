@@ -80,7 +80,10 @@ nodenv_global '9.5.0'
 
 ## Testing
 
-Check [TESTING.md](TESTING.md)
+Check [Test Kitchen](https://kitchen.ci/docs/getting-started/running-test).
+
+- dokken: `KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test`
+- vagrant/virtualbox: `kitchen test`
 
 ## Development
 
