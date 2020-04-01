@@ -7,7 +7,7 @@ Chef resource for [nodenv](https://github.com/nodenv/nodenv) installs, configura
 ## Cookbook
 
 ```ruby
-cookbook 'nodenv', '~> 1.0.0'
+cookbook 'nodenv', '~> 1.0.2'
 ```
 
 ## Resources
