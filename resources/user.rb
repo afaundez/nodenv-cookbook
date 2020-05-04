@@ -27,7 +27,10 @@ action :install do
     cookbook 'nodenv'
   end
 
-  node_build_plugin_install ::File.join(nodenv_plugins_path, 'node-build')
+  node_build_plugin_install ::File.join(nodenv_plugins_path, 'node-build') do
+    user new_resource.user
+    group new_resource.user
+  end
 end
 
 action_class do
