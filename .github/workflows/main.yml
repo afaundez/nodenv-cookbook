@@ -1,0 +1,16 @@
+name: chef supermarket
+on:
+  release:
+    types: [published]
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+      - name: Run Chef Supermarket Share
+        uses: afaundez/chef-supermarket-action@master
+        env:
+          SUPERMARKET_API_KEY: ${{ secrets.SUPERMARKET_API_KEY }}
