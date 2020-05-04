@@ -13,8 +13,6 @@ action :install do
 
   git root_path do
     repository new_resource.git_url
-    user new_resource.user
-    group new_resource.user
     revision  new_resource.git_revision
     user new_resource.owner
     group new_resource.group if new_resource.property_is_set?(:group)
