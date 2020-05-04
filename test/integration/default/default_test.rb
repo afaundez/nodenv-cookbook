@@ -44,7 +44,7 @@ describe file('/home/user-with-nodenv/.nodenv/version') do
   its('group') { should eq 'user-with-nodenv' }
 end
 
-describe directory("/home/user-with-nodenv/.nodenv/plugins") do
+describe directory('/home/user-with-nodenv/.nodenv/plugins') do
   it { should exist }
   its('owner') { should eq 'user-with-nodenv' }
   its('group') { should eq 'user-with-nodenv' }
