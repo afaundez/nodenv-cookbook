@@ -1,5 +1,12 @@
-package 'shadow-utils' if platform_family? 'amazon'
-package 'util-linux' if platform_family? 'debian'
+case node['platform_family']
+when 'debian'
+  execute 'APT update on debian platforms' do
+    command 'apt-get update -qq'
+  end
+  package 'util-linux'
+when 'amazon'
+  package 'shadow-utils'
+end
 
 user 'user-with-nodenv' do
   home '/home/user-with-nodenv'

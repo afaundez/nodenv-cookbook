@@ -23,22 +23,13 @@ platforms:
   - name: debian-10
   - name: fedora-30
   - name: fedora-31
-  - name: fedora-latest
-  - name: oraclelinux-6
-    driver_config:
-      box: bento/oracle-6
-  - name: oraclelinux-7
-    driver_config:
-      box: bento/oracle-7
-  - name: oraclelinux-8
-    driver_config:
-      box: bento/oracle-8
+  - name: oracle-6
+  - name: oracle-7
+  - name: oracle-8
+  - name: ubuntu-14.04
   - name: ubuntu-16.04
   - name: ubuntu-18.04
-  - name: ubuntu-19.10
   - name: ubuntu-20.04
-    driver_config:
-      box: ubuntu/xenial64
 
 suites:
   - name: default
