@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [unreleased]
+### Added
+- use group property during system install
+- owner property to user install, deprecates user property
+- owner property to user install
+### Updated
+- node-build cookbook to 1.0.2
+- git url, using chef example format
+- git revision, using HEAD instead of master
+- Reorder properties alphabetically
+### Fixed
+- debian error on group permissions
+
 ## [1.0.2] - 2020-04-01
 ### Fixed
 - group of file/directory is the same as the owner

@@ -8,10 +8,13 @@ describe file("/usr/local/nodenv/versions/#{system_version}/bin/node") do
   it { should exist }
 end
 
-describe command('runuser -l user-without-nodenv -c ". /etc/profile.d/nodenv.sh && nodenv global"') do
-  its('exit_status') { should eq 0 }
-  its('stdout') { should include(system_version) }
-  its('stdout') { should_not match(/system/) }
+control 'runuser test user-without-nodenv' do
+  only_if('not ubuntu 14.04') { os.name != 'ubuntu' || os.release >= '16.04' }
+  describe command('runuser -l user-without-nodenv -c ". /etc/profile.d/nodenv.sh && nodenv global"') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should include(system_version) }
+    its('stdout') { should_not match(/system/) }
+  end
 end
 
 user_version = '8.9.4'
@@ -20,10 +23,13 @@ describe file("/home/user-with-nodenv/.nodenv/versions/#{user_version}/bin/node"
   it { should exist }
 end
 
-describe command('runuser -l user-with-nodenv -c ". /etc/profile.d/nodenv.sh && nodenv global"') do
-  its('exit_status') { should eq 0 }
-  its('stdout') { should include(user_version) }
-  its('stdout') { should_not match(/system/) }
+control 'runuser test user-with-nodenv' do
+  only_if('not ubuntu 14.04') { os.name != 'ubuntu' || os.release >= '16.04' }
+  describe command('runuser -l user-with-nodenv -c ". /etc/profile.d/nodenv.sh && nodenv global"') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should include(user_version) }
+    its('stdout') { should_not match(/system/) }
+  end
 end
 
 describe directory("/home/user-with-nodenv/.nodenv/versions/#{user_version}") do

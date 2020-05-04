@@ -29,14 +29,12 @@ env:
     - INSTANCE=default-debian-10
     - INSTANCE=default-fedora-30
     - INSTANCE=default-fedora-31
-    - INSTANCE=default-fedora-latest
-    # - INSTANCE=default-opensuse-leap-15
     - INSTANCE=default-oraclelinux-6
     - INSTANCE=default-oraclelinux-7
     - INSTANCE=default-oraclelinux-8
+    - INSTANCE=default-ubuntu-1404
     - INSTANCE=default-ubuntu-1604
     - INSTANCE=default-ubuntu-1804
-    - INSTANCE=default-ubuntu-1910
     - INSTANCE=default-ubuntu-2004
 
 before_script:

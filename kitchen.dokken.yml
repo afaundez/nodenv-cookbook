@@ -8,7 +8,7 @@ transport:
 
 provisioner:
   name: dokken
-  deprecations_as_errors: true
+  deprecations_as_errors: false
   chef_license: accept-no-persist
 
 verifier:
@@ -17,9 +17,6 @@ verifier:
 
 platforms:
   - name: amazonlinux-1
-    driver:
-      image: dokken/amazonlinux
-      pid_one_command: /sbin/init
   - name: amazonlinux-2
     driver:
       image: dokken/amazonlinux-2
@@ -39,15 +36,12 @@ platforms:
   - name: debian-8
     driver:
       image: dokken/debian-8
-      pid_one_command: /bin/systemd
   - name: debian-9
     driver:
       image: dokken/debian-9
-      pid_one_command: /bin/systemd
   - name: debian-10
     driver:
       image: dokken/debian-10
-      pid_one_command: /bin/systemd
   - name: fedora-30
     driver:
       image: dokken/fedora-30
@@ -56,16 +50,6 @@ platforms:
     driver:
       image: dokken/fedora-31
       pid_one_command: /usr/lib/systemd/systemd
-  - name: fedora-latest
-    driver:
-      image: dokken/fedora-latest
-      pid_one_command: /usr/lib/systemd/systemd
-  # - name: freebsd-11
-  # - name: freebsd-12
-  # - name: opensuse-leap-15
-  #   driver:
-  #     image: dokken/opensuse-leap-15
-  #     pid_one_command: /bin/systemd
   - name: oraclelinux-6
     driver:
       image: dokken/oraclelinux-6
@@ -77,34 +61,18 @@ platforms:
   - name: oraclelinux-8
     driver:
       image: dokken/oraclelinux-8
+  - name: ubuntu-14.04
+    driver:
+      image: dokken/ubuntu-14.04
   - name: ubuntu-16.04
     driver:
       image: dokken/ubuntu-16.04
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
-        - RUN /usr/bin/apt-get install sudo -y
   - name: ubuntu-18.04
     driver:
       image: dokken/ubuntu-18.04
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
-        - RUN /usr/bin/apt-get install sudo -y
-  - name: ubuntu-19.10
-    driver:
-      image: dokken/ubuntu-19.10
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
-        - RUN /usr/bin/apt-get install sudo -y
   - name: ubuntu-20.04
     driver:
       image: dokken/ubuntu-20.04
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
-        - RUN /usr/bin/apt-get install sudo -y
 
 suites:
   - name: default

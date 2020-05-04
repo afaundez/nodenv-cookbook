@@ -24,10 +24,12 @@ nodenv_user 'user'
 
 |Property|Type|Default|Details|
 |-|-|-|-|
-|`:user`|String||must be and existing user, acts as name property|
+|`:git_revision`|String|HEAD|choose a revision|
+|`:git_url`|String|git://github.com/nodenv/nodenv.git|a valid git url|
 |`:nodenv_root`|String|`:user`'s home|a directory that must be writable by `:user`|
-|`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
-|`:git_revision`|String|master|choose a branch|
+|`:owner`|String||must be and existing user, acts as name property|
+|`:group`|String||must be and existing group.|
+|`:user`|String||Deprecated, use `:owner` property|
 
 #### System-wide
 
@@ -37,9 +39,9 @@ nodenv_system 'system'
 
 |Property|Type|Default|Details|
 |-|-|-|-|
+|`:git_revision`|String|HEAD|choose a revision|
+|`:git_url`|String|git://github.com/nodenv/nodenv.git|a valid git url|
 |`:nodenv_root`|String|`/usr/local/nodenv`||
-|`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
-|`:git_revision`|String|master|choose a branch|
 
 ### Commands
 
