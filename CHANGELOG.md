@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - node-build cookbook to 1.0.2
 - git url, using chef example format
 - git revision, using HEAD instead of master
+- Reorder properties alphabetically
 ### Fixed
 - debian error on group permissions
 

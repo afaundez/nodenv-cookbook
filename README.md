@@ -39,9 +39,9 @@ nodenv_system 'system'
 
 |Property|Type|Default|Details|
 |-|-|-|-|
-|`:nodenv_root`|String|`/usr/local/nodenv`||
 |`:git_revision`|String|HEAD|choose a revision|
 |`:git_url`|String|git://github.com/nodenv/nodenv.git|a valid git url|
+|`:nodenv_root`|String|`/usr/local/nodenv`||
 
 ### Commands
 
