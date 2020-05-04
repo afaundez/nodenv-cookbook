@@ -1,5 +1,5 @@
-property :git_revision, String, default: 'master'
 property :nodenv_root, String, default: lazy { ::File.join ::File.expand_path("~#{user}"), '.nodenv' }
+property :git_revision, String, default: 'HEAD'
 property :git_url, String, default: 'git://github.com/nodenv/nodenv.git'
 property :group, String
 property :owner, String, name_property: true
@@ -12,9 +12,9 @@ action :install do
 
   git root_path do
     repository new_resource.git_url
-    reference  new_resource.git_revision
     user new_resource.user
     group new_resource.user
+    revision  new_resource.git_revision
     user new_resource.owner
     group new_resource.group if new_resource.property_is_set?(:group)
     action :checkout
