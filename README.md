@@ -24,10 +24,11 @@ nodenv_user 'user'
 
 |Property|Type|Default|Details|
 |-|-|-|-|
-|`:user`|String||must be and existing user, acts as name property|
 |`:nodenv_root`|String|`:user`'s home|a directory that must be writable by `:user`|
 |`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
 |`:git_revision`|String|master|choose a branch|
+|`:owner`|String||must be and existing user, acts as name property|
+|`:user`|String||Deprecated, use `:owner` property|
 
 #### System-wide
 
