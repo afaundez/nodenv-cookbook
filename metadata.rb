@@ -16,4 +16,4 @@ supports 'oracle'
 supports 'ubuntu'
 
 depends 'git', '~> 10.0.0'
-depends 'node_build', '~> 1.0.1'
+depends 'node_build', '~> 1.0.2'
