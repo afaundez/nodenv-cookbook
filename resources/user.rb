@@ -4,6 +4,7 @@ property :group, String
 property :nodenv_root, String, default: lazy { ::File.join ::File.expand_path("~#{owner}"), '.nodenv' }
 property :owner, String, name_property: true
 deprecated_property_alias :user, :owner,
+                          'User property is deprecated. Use owner instead'
 
 action :install do
   node.run_state['root_path'] = new_resource.nodenv_root
