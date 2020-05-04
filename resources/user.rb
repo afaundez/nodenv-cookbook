@@ -1,6 +1,7 @@
 property :git_url, String, default: 'https://github.com/nodenv/nodenv.git'
 property :git_revision, String, default: 'master'
 property :nodenv_root, String, default: lazy { ::File.join ::File.expand_path("~#{user}"), '.nodenv' }
+property :group, String
 property :owner, String, name_property: true
 deprecated_property_alias :user, :owner,
 
@@ -15,6 +16,7 @@ action :install do
     user new_resource.user
     group new_resource.user
     user new_resource.owner
+    group new_resource.group if new_resource.property_is_set?(:group)
     action :checkout
     not_if { ::File.exist? nodenv_bin_file }
   end

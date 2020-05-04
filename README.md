@@ -28,6 +28,7 @@ nodenv_user 'user'
 |`:git_url`|String|https://github.com/nodenv/nodenv.git|a valid git url|
 |`:git_revision`|String|master|choose a branch|
 |`:owner`|String||must be and existing user, acts as name property|
+|`:group`|String||must be and existing group.|
 |`:user`|String||Deprecated, use `:owner` property|
 
 #### System-wide

@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [unreleased]
 ### Added
-_ owner property, deprecates user
+- owner property to user install, deprecates user property
+- add owner property to user install
 ### Updated
 - node-build cookbook to 1.0.2
 ### Fixed
