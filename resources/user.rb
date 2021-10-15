@@ -28,7 +28,7 @@ action :install do
   end
 
   node_build_plugin_install ::File.join(nodenv_plugins_path, 'node-build') do
-    user new_resource.user
+    owner new_resource.user
     group new_resource.user
   end
 end
