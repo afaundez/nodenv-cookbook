@@ -8,7 +8,7 @@ transport:
 
 provisioner:
   name: dokken
-  deprecations_as_errors: false
+  deprecations_as_errors: true
   chef_license: accept-no-persist
 
 verifier:

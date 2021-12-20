@@ -3,7 +3,7 @@ maintainer 'Alvaro Faundez'
 maintainer_email 'alvaro@faundez.net'
 license 'MIT'
 description 'Installs/Configures nodenv'
-version '1.0.3'
+version '1.0.4'
 
 issues_url 'https://github.com/afaundez/nodenv-cookbook/issues'
 source_url 'https://github.com/afaundez/nodenv-cookbook'
