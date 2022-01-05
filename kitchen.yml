@@ -6,6 +6,8 @@ provisioner:
   name: chef_zero
   always_update_cookbooks: true
   chef_license: accept-no-persist
+  product_name: chef
+  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
 
 verifier:
   name: inspec
