@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2022-01-04
+### Added
+- testing doc
+- devcontainer for delivery
+- chef version in metadata
+- tested with chef 15.3, 16, and 17
+### Updated
+- kitchen dokken
+- github action workflow replaces travis-ci
+### Fixed
+- deprecation as error in kitchen dockken
+### Removed
+- ubuntu 14.04 from test kitchen
+
 ## [1.0.3] - 2020-05-04
 ### Added
 - use group property during system install
