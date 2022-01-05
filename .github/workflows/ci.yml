@@ -1,0 +1,47 @@
+name: kitchen
+
+on:
+  push:
+    branches: [master, ci]
+  pull_request:
+    branches: [master]
+
+jobs:
+  delivery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Run Chef Delivery
+        uses: actionshub/chef-delivery@main
+        env:
+          CHEF_LICENSE: accept-no-persist
+
+  integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - fedora-34
+          - ubuntu-2004
+        chef_version:
+          - '15.3'
+          - 'latest'
+        suite: [default]
+      fail-fast: false
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Install Chef
+      uses: actionshub/chef-install@main
+    - name: Test Kitchen
+      uses: actionshub/kitchen-dokken@creation
+      with:
+        suite: ${{ matrix.suite }}
+        os: ${{ matrix.os }}
+      env:
+        CHEF_LICENSE: accept-no-persist
+        CHEF_VERSION: ${{ matrix.chef_version }}
+        KITCHEN_LOCAL_YAML: kitchen.dokken.yml
+        
+  
