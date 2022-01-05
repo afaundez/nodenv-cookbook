@@ -8,6 +8,8 @@ version '1.0.4'
 issues_url 'https://github.com/afaundez/nodenv-cookbook/issues'
 source_url 'https://github.com/afaundez/nodenv-cookbook'
 
+chef_version '>= 15.3'
+
 supports 'amazon'
 supports 'centos'
 supports 'debian'
