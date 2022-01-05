@@ -22,11 +22,16 @@ jobs:
     strategy:
       matrix:
         os:
+          - amazonlinux-2
+          - centos-8
+          - debian-9
           - fedora-34
+          - oraclelinux-8
           - ubuntu-2004
         chef_version:
           - '15.3'
-          - 'latest'
+          - '16'
+          - '17'
         suite: [default]
       fail-fast: false
     steps:
