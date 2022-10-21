@@ -9,7 +9,7 @@ transport:
 
 provisioner:
   name: dokken
-  deprecations_as_errors: false
+  deprecations_as_errors: true
   chef_license: accept-no-persist
 
 verifier:
@@ -30,7 +30,7 @@ platforms:
       image: dokken/debian-9
       intermediate_instructions:
         - RUN /usr/bin/apt-get update -qq
-  - name: fedora-34 
+  - name: fedora-34
     driver:
       image: dokken/fedora-34
       pid_one_command: /usr/lib/systemd/systemd
